@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 COM_DIR="gzachos-com"
-if ! git clone ssh://git@github.com/gzachos/gzachos.github.io/ ${COM_DIR}; then
+if ! git clone https://github.com/gzachos/gzachos.github.io/ ${COM_DIR}; then
 	exit 1
 fi
 
