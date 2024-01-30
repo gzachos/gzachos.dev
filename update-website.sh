@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 COM_DIR="gzachos-com"
-git clone ssh://git@github.com/gzachos/gzachos.github.io/ gzachos-com
+if ! git clone ssh://git@github.com/gzachos/gzachos.github.io/ ${COM_DIR}; then
+	exit 1
+fi
 
 git rm -rf images
 cp -r ${COM_DIR}/images/ .
@@ -15,5 +17,8 @@ do
 	sed -i -e 's/shared-files/https:\/\/gzachos.com\/shared-files/g' ${f}
 	git add ${f}
 done
+
+date > latest-update.txt
+git add latest-update.txt
 
 rm -rf ${COM_DIR}
